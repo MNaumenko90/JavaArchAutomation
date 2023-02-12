@@ -1,6 +1,7 @@
 package ui.selenium.tests;
 
 
+import io.qameta.allure.Description;
 import org.testng.annotations.Test;
 import ui.selenium.configuration.Base;
 import ui.selenium.po.LoginPage;
@@ -13,6 +14,7 @@ import static ui.selenium.utils.Utils.getProperty;
 public class WikiLoginTest extends Base {
 
     @Test
+    @Description("Test for successfully auth with user")
     public void wikiLogInTest() {
         User user = getUserCredentials();
 

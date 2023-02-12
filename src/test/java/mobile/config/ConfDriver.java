@@ -3,6 +3,7 @@ package mobile.config;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import io.qameta.allure.Step;
 import mobile.exceptions.DriverNotFoundException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -15,6 +16,7 @@ public class ConfDriver {
 
     protected static AppiumDriver<WebElement> driver;
 
+    @Step("Get driver")
     public static AppiumDriver<WebElement> getDriver() {
         if (getProperty("start").equals("android")) {
             DesiredCapabilities capabilities = new DesiredCapabilities();

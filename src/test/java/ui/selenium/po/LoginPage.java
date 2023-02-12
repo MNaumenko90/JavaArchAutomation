@@ -1,5 +1,6 @@
 package ui.selenium.po;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import ui.selenium.entities.User;
 
@@ -15,6 +16,7 @@ public class LoginPage extends BaseMethods {
 
     private final By getUsername = By.xpath("//li[@id='pt-userpage-2']//span");
 
+    @Step("Auth user")
     public LoginPage auth(User user) {
         sendKeys(login, user.getUsername());
         sendKeys(password, user.getPassword());
@@ -22,11 +24,13 @@ public class LoginPage extends BaseMethods {
         return this;
     }
 
+    @Step("Click login button")
     public LoginPage clickLogin() {
         click(loginButton);
         return this;
     }
 
+    @Step("Get user's username")
     public String getUsername() {
         return getText(getUsername);
     }

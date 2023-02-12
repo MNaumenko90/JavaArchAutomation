@@ -19,6 +19,7 @@
         <aspectj.version>1.8.10</aspectj.version>
         <selenium.version>3.141.59</selenium.version>
         <java.client.version>7.3.0</java.client.version>
+        <allure.version>2.18.1</allure.version>
     </properties>
 
     <dependencies>
@@ -60,6 +61,11 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
         </dependency>
     </dependencies>
 

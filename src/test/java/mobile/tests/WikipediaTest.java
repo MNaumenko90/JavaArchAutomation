@@ -1,5 +1,6 @@
 package mobile.tests;
 
+import io.qameta.allure.Description;
 import mobile.config.Base;
 import mobile.po.SafeListPageObject;
 import mobile.po.SearchPageObject;
@@ -10,7 +11,8 @@ import static org.testng.AssertJUnit.assertEquals;
 public class WikipediaTest extends Base {
 
     @Test
-    public void firstTest() {
+    @Description("Search text Appium in app Wiki")
+    public void searchAppiumTextTest() {
         new SearchPageObject(driver)
                 .clickSkipButton()
                 .searchAppiumText();
@@ -19,6 +21,7 @@ public class WikipediaTest extends Base {
     }
 
     @Test
+    @Description("Test for correct swiping to up")
     public void simpleSwipeTest() {
         new SearchPageObject(driver)
                 .clickSkipButton()
@@ -27,6 +30,7 @@ public class WikipediaTest extends Base {
     }
 
     @Test
+    @Description("Test for correct adding and deleting article in list")
     public void safeArticleToMyList() {
         new SearchPageObject(driver)
                 .clickSkipButton()

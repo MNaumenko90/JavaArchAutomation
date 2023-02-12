@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Selenide" thread-count="1" parallel="tests" group-by-instances="true">
+    <test name="selenide">
+        <classes>
+            <class name="ui.selenide.tests.WikiLoginTest"/>
+        </classes>
+    </test>
+
+</suite>

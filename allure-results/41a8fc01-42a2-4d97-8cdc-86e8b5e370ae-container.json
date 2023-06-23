@@ -1,0 +1,1 @@
+{"uuid":"41a8fc01-42a2-4d97-8cdc-86e8b5e370ae","name":"mobile.config.Base.setUp","children":["a220ec57-c631-44d0-a97c-38834808a6cf"],"description":"","befores":[{"name":"setUp","status":"broken","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1681163834121,"stop":1681163834121}],"afters":[],"start":1681163834121,"stop":1681163834121}

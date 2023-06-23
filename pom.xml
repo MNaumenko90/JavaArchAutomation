@@ -81,9 +81,9 @@
                     </argLine>
                     <suiteXmlFiles>
 <!--                        <suiteXmlFile>src/api.xml</suiteXmlFile>-->
-<!--                        <suiteXmlFile>src/selenide.xml</suiteXmlFile>-->
+                        <suiteXmlFile>src/selenide.xml</suiteXmlFile>
 <!--                        <suiteXmlFile>src/selenium.xml</suiteXmlFile>-->
-                        <suiteXmlFile>src/mobile.xml</suiteXmlFile>
+<!--                        <suiteXmlFile>src/mobile.xml</suiteXmlFile>-->
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>

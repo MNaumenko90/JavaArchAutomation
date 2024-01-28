@@ -17,12 +17,6 @@ public class WikiLoginTest extends Base {
     public void wikiLogInTest() {
         User user = getUserCredentials();
 
-        int a;
-
-        int b;
-
-
-
         new LoginPage()
                 .clickLogin()
                 .auth(user);

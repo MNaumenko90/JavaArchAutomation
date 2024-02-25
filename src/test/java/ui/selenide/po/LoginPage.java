@@ -11,9 +11,13 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class LoginPage {
 
-    SelenideElement login = $x("//input[@id='wpName1']");
+    public SelenideElement login() {
+        return $x("//input[@id='wpName1']");
+    }
 
-    SelenideElement password = $x("//input[@id='wpPassword1']");
+    public SelenideElement password() {
+        return $x("//input[@id='wpPassword1']");
+    }
 
     SelenideElement enter = $x("//button[@value='Log in']");
 
@@ -23,8 +27,8 @@ public class LoginPage {
 
     @Step("Auth user")
     public LoginPage auth(User user) {
-        login.shouldBe(visible, enabled).sendKeys(user.getUsername());
-        password.shouldBe(visible, enabled).sendKeys(user.getPassword());
+        login().shouldBe(visible, enabled).sendKeys(user.getUsername());
+        password().shouldBe(visible, enabled).sendKeys(user.getPassword());
         enter.shouldBe(visible, enabled).click();
         return page(new LoginPage());
     }

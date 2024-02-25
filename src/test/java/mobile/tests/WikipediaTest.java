@@ -1,55 +1,53 @@
 package mobile.tests;
 
-import io.qameta.allure.Description;
-import mobile.config.Base;
-import mobile.po.SafeListPageObject;
-import mobile.po.SearchPageObject;
+
+import mobile.po.ListSavedArticlePage;
+import mobile.po.SavePage;
+import mobile.po.SkipPage;
+import mobile.services.ArticleService;
+import mobile.services.ListSavedArticleService;
+import mobile.services.SearchService;
 import org.testng.annotations.Test;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
-public class WikipediaTest extends Base {
+public class WikipediaTest extends BaseTest {
 
     @Test
-    @Description("Search text Appium in app Wiki")
-    public void searchAppiumTextTest() {
-        new SearchPageObject(driver)
-                .clickSkipButton()
-                .searchAppiumText();
+    void downloadScreenshot() {
+        new SkipPage().clickSkip();
+        new SearchService().searchTest("Odesa");
 
-        assertEquals("Automation for Apps", new SearchPageObject(driver).getSearchedArticle());
+        new ArticleService()
+                .clickArticleAndSaveImage();
     }
 
     @Test
-    @Description("Test for correct swiping to up")
-    public void simpleSwipeTest() {
-        new SearchPageObject(driver)
-                .clickSkipButton()
-                .searchAppiumText()
-                .swipeToUp();
+    void shouldBeArticleNameVisible() {
+        new SkipPage().clickSkip();
+
+        new SearchService().searchTest("Appium");
+
+        var article = new ArticleService().getArticleName();
+
+        assertThat(article).as("The article has wrong name").isEqualTo("Appium");
     }
 
     @Test
-    @Description("Test for correct adding and deleting article in list")
-    public void safeArticleToMyList() {
-        new SearchPageObject(driver)
-                .clickSkipButton()
-                .searchAppiumText()
-                .clickSearchedText();
+    void shouldBeSwipeUp() {
+        new SkipPage().clickSkip();
 
-        new SafeListPageObject(driver)
-                .clickSaveButton()
-                .clickAddToList()
-                .fillNameList("list")
-                .clickConfirmCreateNameToList()
-                .clickViewList();
+        new SearchService().searchTest("Appium");
 
-        assertEquals("Automation for Apps", new SearchPageObject(driver).getSearchedArticle());
+        new ArticleService().clickArticle();
 
-        new SafeListPageObject(driver)
-                .swipeArticleLeft()
-                .clickMoreOptions()
-                .clickDeleteButton()
-                .clickConfirmDelete();
+        new SavePage().clickSaveButton();
+
+        new ListSavedArticleService()
+                .addToListArticle("ABC");
+
+        new ListSavedArticlePage()
+                .swipeElementRight(300);
     }
+
 }

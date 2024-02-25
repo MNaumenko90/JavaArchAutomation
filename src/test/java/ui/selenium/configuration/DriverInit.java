@@ -1,12 +1,10 @@
 package ui.selenium.configuration;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import mobile.exceptions.DriverNotFoundException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import ui.selenium.exceptions.DriverNotFoundException;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -19,9 +17,9 @@ public class DriverInit {
 
 
     public static WebDriver getDriver() {
-        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setBrowserName("chrome");
-        capabilities.setVersion("114.0"); // Задайте нужную версию браузера
+        capabilities.setVersion("114.0");
         capabilities.setCapability("timeZone", "Europe/Berlin");
         capabilities.setCapability("enableLog", true);
         capabilities.setCapability("enableVideo", true);
@@ -38,11 +36,8 @@ public class DriverInit {
 
         if (driver== null) {
             if (getProperty("browser").equals("chrome")) {
-//                WebDriverManager.chromedriver().setup();
-//                driver = new ChromeDriver();
                 driver = new RemoteWebDriver(selenoidURL, capabilities);
             } else if (getProperty("browser").equals("firefox")) {
-                WebDriverManager.firefoxdriver().setup();
                 driver = new FirefoxDriver();
             } else {
                 try {

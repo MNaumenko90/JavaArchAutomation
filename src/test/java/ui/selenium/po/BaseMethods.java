@@ -5,13 +5,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static ui.selenium.utils.Utils.f;
 import static ui.selenium.configuration.DriverInit.getDriver;
 
 public class BaseMethods {
 
     private WebElement waitForElementPresent(By by) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), 10);
+        WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
         wait.withMessage(f("Cannot find element: %s", by));
         return wait.until(ExpectedConditions.presenceOfElementLocated(by));
     }

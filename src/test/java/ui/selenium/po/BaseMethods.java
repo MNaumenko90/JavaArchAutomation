@@ -34,3 +34,4 @@ public class BaseMethods {
         return waitForElementPresent(by).getText();
     }
 }
+
